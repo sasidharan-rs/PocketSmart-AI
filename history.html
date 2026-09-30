@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<h2>Your history</h2>{% for r in rows %}<div class="card">
+<b>{{ r.kind|capitalize }}</b> · {{ r.created }} · Budget ₹{{ r.inputs.budget }}
+<ul>{% for i in r["items"] %}<li>{{ i.name }} – ₹{{ i.price }} ({{ i.platform }})</li>{% endfor %}</ul></div>
+{% else %}<p>No history yet.</p>{% endfor %}
+{% endblock %}

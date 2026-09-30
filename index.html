@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block content %}
+<div class="card" style="background:linear-gradient(135deg,#1e3c72,#2a5298);color:#fff;text-align:center;padding:40px 16px">
+<h1>AI-Powered Budget Planning for Everyday Needs</h1>
+<p>Smart recommendations for home interiors, parties and jewelry – within your budget.</p>
+<a class="btn" style="background:#fff;color:#2a5298" href="{{ '/dashboard' if user else '/register' }}">Get Started</a></div>
+<h2 style="text-align:center">Our Smart Budget Planners</h2>
+<div class="grid">{% for k,(title,f) in planners.items() %}
+<div class="card"><h3>{{ {'home':'🏠','party':'🎉','jewelry':'💎'}[k] }} {{ title }}</h3>
+<a class="btn" href="/planner/{{ k }}">Open</a></div>{% endfor %}</div>
+<h2 style="text-align:center">Testimonials</h2>
+<div class="grid"><div class="card">“Planned my living room under ₹50,000!” – Divya</div>
+<div class="card">“Party budget split done in seconds.” – Arun</div></div>
+<footer style="text-align:center;color:#666;margin:30px 0">© PocketSmart AI</footer>
+{% endblock %}

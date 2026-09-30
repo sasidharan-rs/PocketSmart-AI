@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<h2>{{ title }} – Recommendations</h2>
+<p>Budget: ₹{{ budget }} | Estimated total: ₹{{ total|round|int }}</p>
+<div class="grid">{% for i in items %}<div class="card"><h3>{{ i.name }}</h3>
+<p><b>{{ i.category }}</b> · {{ i.platform }}</p><p>₹{{ i.price }}</p><p>{{ i.reason }}</p>
+<a class="btn" href="{{ i.link }}" target="_blank">View on {{ i.platform }}</a></div>{% endfor %}</div>
+{% endblock %}

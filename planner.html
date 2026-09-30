@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><h2>{{ title }}</h2>
+<form method="post" action="/generate-{{ kind }}" enctype="multipart/form-data">
+{% for name,label,type in fields %}<label>{{ label }}</label>
+<input name="{{ name }}" type="{{ type }}" {% if type=='file' %}accept="image/*"{% else %}required{% endif %}>{% endfor %}
+<button>Get recommendations</button></form></div>
+{% endblock %}

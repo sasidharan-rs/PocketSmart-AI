@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<h2>Welcome, {{ user }} 👋</h2>
+<div class="grid">{% for k,(title,f) in planners.items() %}
+<div class="card"><h3>{{ title }}</h3><a class="btn" href="/planner/{{ k }}">Plan now</a></div>{% endfor %}</div>
+<h3>Recent recommendations</h3>
+{% for r in recent %}<div class="card">{{ r.kind|capitalize }} · ₹{{ r.budget }} · {{ r.created }}</div>
+{% else %}<p>Nothing yet – try a planner!</p>{% endfor %}
+<a class="btn" href="/history">Full history</a>
+{% endblock %}
